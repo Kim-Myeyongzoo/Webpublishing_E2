@@ -1,0 +1,729 @@
+/* 기존 CSS와 겹치지 않게, 새로운 섹션에 대한 스타일만 추가 */
+
+/* --- 1. 헤더 수정 (추가된 요소에 대한 스타일) --- */
+/* 사용자 아이콘 및 카트 아이콘을 위한 그룹 */
+.user-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.user-buttons .icon-button {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2em;
+}
+
+/* 현재 페이지 강조 (MAIN) */
+.main-nav .current-page {
+    font-weight: bold;
+    color: #000; /* 활성화된 페이지 색상 */
+}
+
+/* --- 2. 하드 서피스 배너 / 영웅 섹션 스타일 --- */
+.hs-hero-section {
+    padding-top: 300px;
+    background-color: #f0f0f0; /* 이미지 배경색과 유사하게 설정 */
+    padding: 80px 0;
+}
+
+.hs-hero-section .container {
+        padding-top: 300px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.hs-content {
+    flex: 1;
+    max-width: 50%;
+}
+
+.hs-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.hs-content p {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.hs-image-wrapper {
+    flex: 1;
+    max-width: 50%;
+    /* 이미지 자체가 검은색 배경을 가지므로 padding으로 배경색 분리 */
+    padding: 20px; 
+    background-color: #2a2a2a; /* 이미지 주변의 검은색 박스 배경 */
+    border-radius: 8px;
+}
+
+.hs-hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* EXPLORE COURSES 버튼은 기존 .explore-button 스타일 재사용 */
+
+
+/* --- 3. 필터링 및 코스 목록 스타일 --- */
+.hs-course-listing {
+    padding: 40px 0 60px 0;
+}
+
+/* 필터 헤더 (Browse by Category 제목, About us, Full Course 필터) */
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* About us와 필터를 같은 선상에 맞춤 */
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.filter-option-main label {
+    color: #666;
+    margin-right: 10px;
+}
+
+.custom-select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    appearance: none; /* 기본 select 스타일 제거 */
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* 탭 및 정렬 옵션 */
+.filter-tabs-and-sort {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-tab {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.filter-tab.active {
+    background-color: #f0f0f0;
+    border-color: #000;
+    font-weight: bold;
+}
+
+.sort-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9em;
+}
+
+.sort-options label {
+    color: #666;
+}
+
+.sort-select {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-icon-small {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* 코스 카드 스타일 재사용 (기존 course-card를 활용) */
+.course-card .course-meta {
+    margin-top: 5px;
+    font-size: 0.8em;
+    color: orange; /* 이미지에서 보이는 별점 색상 */
+}
+
+/* --- 미디어 쿼리: 반응형 조정 --- */
+
+/* 태블릿 (768px 이상) */
+@media (min-width: 768px) {
+    /* 기존 헤더 스타일 재사용 */
+    .course-grid {
+        grid-template-columns: repeat(5, 1fr); /* 이미지에서 보이는 대로 4열 유지 */
+    }
+}
+
+/* 모바일 (767px 이하) */
+@media (max-width: 767px) {
+    /* --- 2. 하드 서피스 배너 --- */
+    .hs-hero-section .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hs-content, .hs-image-wrapper {
+        max-width: 100%;
+    }
+
+    /* --- 3. 필터링 및 코스 목록 --- */
+    .filter-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter-option-main {
+        margin-top: 10px;
+        width: 100%;
+        text-align: right;
+    }
+
+    .filter-tabs-and-sort {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .filter-tabs {
+        flex-wrap: wrap; /* 탭이 너무 많으면 다음 줄로 넘어가도록 */
+    }
+
+    .sort-options {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .course-grid {
+        grid-template-columns: repeat(2, 1fr); /* 모바일에서 2열 */
+    }
+}
+
+/* 아주 작은 모바일 (480px 이하) */
+@media (max-width: 480px) {
+    .course-grid {
+        grid-template-columns: 1fr; /* 아주 작은 모바일에서 1열 */
+    }
+}
+/* 기본 리셋 및 공통 스타일 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f7f7f7; /* 배경색 설정 */
+}
+
+/* 최대 너비 제한 및 중앙 정렬 */
+.container {
+    width: 90%;
+    max-width: 1200px; /* 데스크톱 최대 너비 */
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* --- 1. 헤더 스타일 --- */
+.main-header {
+    background-color: #ffffff;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: bold;
+    color: #ae49a3; /* 이미지 상의 보라색 계열 */
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.85em;
+    padding: 5px 0;
+}
+
+.search-button, .menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+/* 모바일에서는 네비게이션 숨기기 */
+.main-nav, .search-button {
+    display: none;
+}
+
+.menu-toggle {
+    display: block; /* 모바일에서 햄버거 메뉴 표시 */
+}
+
+/* --- 2. 영웅 섹션 스타일 --- */
+.hero-section {
+    background-color: #a3a3a34f; /* 배경색 설정 */
+    background-image: url(https://images.unsplash.com/photo-1674515513957-bc5b9c5ee367?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    padding: 60px 0;
+}
+
+.hero-section .container {
+    display: flex;
+    align-items: center;
+    gap: 500px;
+}
+
+.hero-content {
+    padding-top: 300px;
+    flex: 1;
+    max-width: 50%; /* 컨텐츠 영역 너비 */
+}
+
+.hero-image {
+    flex: 1;
+    max-width: 100%;
+    text-align: right;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 350px; /* 로봇 머리 이미지 크기 */
+    height: auto;
+}
+
+.explore-button {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+/* --- 3. 카테고리 탐색 스타일 --- */
+.category-browse {
+    padding: 40px 0;
+}
+
+.section-title-wrapper {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.about-us {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.category-paths {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.path-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    text-decoration: none;
+    color: #333;
+    border-radius: 5px;
+}
+
+/* --- 4. 코스 목록 스타일 (CSS Grid 사용) --- */
+.course-listing {
+    padding-bottom: 60px;
+}
+
+.course-grid {
+    display: grid;
+    /* 데스크톱: 4열 */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.course-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    text-decoration: none;
+    color: #333;
+    position: relative;
+    overflow: hidden;
+    /* 이미지와 텍스트를 정렬하기 위해 flex 사용 */
+    display: flex;
+    flex-direction: column;
+}
+
+.course-card .number {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 2em;
+    font-weight: bold;
+    color: #ddd;
+    z-index: 1;
+}
+
+.card-image-placeholder {
+    height: 120px; /* 썸네일 높이 */
+    background-color: #f0f0f0;
+    margin-bottom: 10px;
+}
+
+.course-card h3 {
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+
+.course-card p {
+    font-size: 0.85em;
+    color: #888;
+}
+
+.course-card .arrow {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-weight: bold;
+    color: #ae49a3; /* 강조 색상 */
+}
+
+
+/* =======================================
+   미디어 쿼리: 태블릿 및 데스크톱 (768px 이상)
+   ======================================= */
+@media (min-width: 768px) {
+    /* --- 1. 헤더 (Header) --- */
+    .main-nav, .search-button {
+        display: flex; /* 네비게이션과 검색 버튼 보이기 */
+    }
+
+    .menu-toggle {
+        display: none; /* 햄버거 메뉴 숨기기 */
+    }
+
+    /* --- 3. 카테고리 (Category Paths) --- */
+    .category-paths {
+        flex-direction: row;
+    }
+
+    /* --- 4. 코스 목록 (Course Grid) --- */
+    .course-grid {
+        /* 태블릿: 3열 */
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* =======================================
+   미디어 쿼리: 모바일 (767px 이하)
+   ======================================= */
+@media (max-width: 767px) {
+    /* --- 2. 영웅 섹션 (Hero Section) --- */
+    .hero-section .container {
+        flex-direction: column-reverse; /* 모바일에서 이미지를 위로, 텍스트를 아래로 */
+        text-align: center;
+    }
+
+    .hero-content, .hero-image {
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    .hero-image img {
+        max-width: 250px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8em;
+    }
+
+    /* --- 3. 카테고리 (Category Paths) --- */
+    .category-paths {
+        flex-direction: column; /* 모바일에서 세로로 쌓기 */
+    }
+
+    /* --- 4. 코스 목록 (Course Grid) --- */
+    .course-grid {
+        /* 모바일: 2열 */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =======================================
+   미디어 쿼리: 아주 작은 모바일 (480px 이하)
+   ======================================= */
+@media (max-width: 480px) {
+    .course-grid {
+        /* 아주 작은 모바일: 1열 */
+        grid-template-columns: 1fr;
+    }
+
+    .course-card {
+        padding: 15px;
+    }
+}
+/* --- 5. 푸터 스타일 --- */
+.main-footer {
+    background-color: #333;
+    color: #fff;
+    padding-top: 50px;
+    font-size: 0.9em;
+}
+
+.footer-content {
+    display: grid;
+    /* 데스크톱: 4열 */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #555;
+}
+
+.footer-col h3, .footer-col h4 {
+    color: #ae49a3; /* 로고 색상과 통일 */
+    margin-bottom: 15px;
+}
+
+.footer-col p {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 8px;
+}
+
+.footer-col ul a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer-col ul a:hover {
+    color: #fff;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.5em;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    background-color: #222;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+@media (max-width: 992px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .footer-col {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-content {
+        /* 모바일: 1열로 쌓기 */
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-col h3, .footer-col h4 {
+        margin-top: 20px;
+    }
+
+    .footer-col ul {
+        padding-left: 0;
+    }
+    
+    .social-icons {
+        margin-top: 10px;
+    }
+}
+#logo{
+    size: flex;
+}
+.card-image-placeholder{
+    width: 100%;
+    overflow: hidden;
+}
+img{
+    width: 100%;
+    overflow: hidden;
+}
+/* 2. 메인 컨텐츠 분할 및 높이 고정 */
+.main-content {
+    display: flex;
+    width: 100%;
+    /* 파란색/빨간색 영역의 높이를 뷰포트에서 헤더를 제외한 값으로 고정 */
+    height: var(--content-height); 
+    overflow: hidden; /* 자식 요소의 스크롤을 방지 */
+}
+
+/* 🔵 왼쪽 영역: 파란색, Sticky 고정 및 높이 고정 */
+.left-area {
+    flex: 1; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    padding: 20px;
+    
+    /* 이 영역은 스크롤되지 않고 뷰포트에 고정 */
+    position: sticky;
+    top: 0; 
+    height: 100%; 
+}
+
+.fixed-image{
+    display: flex;
+    padding-top: 100px;
+    width: 50%;
+    position: fixed;
+    top: var(--header-height); 
+    left: 0;
+}
+
+
+/* 🔴 오른쪽 영역: 빨간색, 높이 고정 및 초록색 박스만 스크롤 가능 */
+.right-area {
+    background-color: rgb(255, 255, 255);
+    flex: 1; 
+    
+    /* ★★★ 핵심 수정: 높이 고정 및 이 영역만 스크롤 가능 ★★★ */
+    height: 100%; 
+    overflow-y: auto; /* 이 영역에 스크롤을 부여 */
+    
+    /* 내부 박스들을 수직으로 쌓기 위한 Flexbox */
+    display: flex;
+    flex-direction: column; 
+    align-items: center; /* 박스들을 가로 중앙 정렬 */
+    
+    padding: 0;
+}
+
+/* 🟢 콘텐츠 박스를 담는 컨테이너 (스크롤 내용의 총 길이 결정) */
+.content-wrapper {
+    /* 이 wrapper가 right-area의 스크롤 내용을 담습니다. */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; 
+}
+
+/* 🟢 초록색 콘텐츠 박스 (수직 적층 및 간격 설정) */
+.content-box {
+    width: 80%; /* 빨간색 영역 대비 너비 */
+    padding: 30px;
+    color: black;
+    
+    /* 박스 간 충분한 공간 확보 */
+    margin-bottom: 80vh; 
+    
+    height: 300px; /* 초록색 박스 높이 고정 (예시) */
+    overflow-y: hidden; /* 초록색 박스 자체는 스크롤되지 않음 */
+
+}
+
+/* ★★★ 첫 번째 박스를 우측 페이지 중앙에서 시작하도록 설정 ★★★ */
+.content-wrapper .content-box:first-child {
+    /* right-area 높이의 절반(50vh)에서 박스 높이의 절반(150px)을 뺀 만큼 margin-top 부여 
+       (여기서는 넉넉하게 50vh를 사용하여 중앙 시작 효과) */
+    margin-top: calc(50vh - 150px); 
+}
+
+/* 마지막 박스의 불필요한 하단 마진 제거 및 화면 하단 여백 추가 */
+.content-wrapper .content-box:last-child {
+    /* 스크롤 마지막에 하단 여백 추가 */
+    margin-bottom: calc(50vh - 150px); 
+}
+
+
+/* 3. 반응형 디자인 (좁은 화면 처리) */
+@media (max-width: 768px) {
+    /* 전체 페이지 스크롤 허용 */
+    html, body {
+        overflow: visible; 
+        height: auto;
+    }
+    
+    .main-content {
+        flex-direction: column;
+        height: auto; 
+    }
+    
+    .left-area, .right-area {
+        width: 100%; 
+        height: auto; /* 높이 고정 해제 */
+        min-height: 50vh; 
+        position: static; /* 모바일에서는 고정 해제 */
+        overflow-y: visible; /* 전체 화면 스크롤 허용 */
+    }
+
+    .right-area {
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    /* 좁은 화면에서는 박스 간격과 시작 위치 조정 */
+    .content-box {
+        width: 95%; 
+        margin-bottom: 50px;
+        height: auto; /* 모바일에서 높이 고정 해제 */
+    }
+    
+    .content-wrapper .content-box:first-child {
+        margin-top: 20px; 
+    }
+
+    .content-wrapper .content-box:last-child {
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,283 @@
+ <style>
+        .main-header {
+    background-color: #ffffff;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-weight: bold;
+    color: #ae49a3; /* 이미지 상의 보라색 계열 */
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.85em;
+    padding: 5px 0;
+}
+
+        /* 기본 리셋 및 중앙 정렬 */
+        body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center; /* 전체 텍스트 및 인라인 요소 가운데 정렬 */
+        }
+
+        /* 메인 컨테이너: 최대 너비 설정 및 가운데 정렬 */
+        .container {
+            max-width: 1000px;
+            margin: 20px auto; /* 상하 20px, 좌우 자동 (가운데 정렬) */
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left; /* 내부 블록 텍스트는 다시 왼쪽 정렬 */
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        h2, h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #555;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #eee;
+        }
+
+        p, ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        
+        ul {
+            list-style-type: disc;
+            padding-left: 40px;
+        }
+
+        /* 1. 유튜브 영상 영역 */
+        .video-section {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .video-wrapper {
+            /* 반응형 비디오 비율 유지 (16:9) */
+            position: relative;
+            padding-bottom: 56.25%; /* 9 / 16 = 0.5625 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            margin: 0 auto; /* wrapper 자체를 가운데 정렬 */
+            border-radius: 4px;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* 2. 텍스트 영역 */
+        .text-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+
+        /* 표 스타일 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+            text-align: left;
+        }
+        
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        
+        th {
+            background-color: #eee;
+            text-align: center;
+        }
+
+        /* 3. 과정 및 완성본 사진 영역 */
+        .photo-gallery {
+            margin-bottom: 30px;
+        }
+        
+        .photo-gallery h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        /* 이미지 그리드 레이아웃 */
+        .image-grid {
+            display: flex;
+            flex-wrap: wrap; /* 반응형 줄바꿈 허용 */
+            gap: 15px; /* 이미지 간 간격 */
+            justify-content: center; /* 이미지들을 중앙 정렬 */
+        }
+        
+        .image-item {
+            /* 기본적으로 세 개의 아이템이 한 줄에 배치 */
+            flex: 1 1 calc(33.333% - 15px); 
+            max-width: 350px; 
+            text-align: center;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px 4px 0 0;
+        }
+
+        /* ---------------------------------- */
+        /* 반응형 디자인 (모바일 최적화) */
+        /* ---------------------------------- */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 10px;
+            }
+            
+            /* 좁은 화면에서는 이미지를 수직으로 쌓음 */
+            .image-grid {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .image-item {
+                flex: 1 1 100%; /* 너비를 꽉 채움 */
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+        <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.png" id="logo">
+                </a></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="./01. HARDSURFACE MODELING.html">HARD SURFACE MODELING</a></li>
+                    <li><a href="./02. CHARACTER MODELING.html">CHARACTER MODELING</a></li>
+                    <li><a href="./03. UV.html">UV</a></li>
+                    <li><a href="./04. LIGHTING.html">LIGHTING</a></li>
+                    <li><a href="./05. VFX.html">VFX</a></li>
+                </ul>
+            </nav>
+    </header>
+
+    <div class="container">
+        <h1>📦 Blender UV 매핑 심층 가이드: 완벽한 텍스처링을 위한 필수 과정</h1>
+        
+        <div class="video-section">
+            <h2>강의 영상</h2>
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/XleO7DBm1Us" 
+                    title="Blender UV Mapping Deep Guide" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        
+        <div class="text-section">
+            <h2>강의 내용 요약 및 텍스트 자료</h2>
+            
+            <h2>1. UV 매핑 소개 및 중요성</h2>
+            <p>UV 매핑은 3D 모델의 표면에 2D 텍스처를 입히기 위해 모델을 평면으로 펼치는 과정입니다. 모델링만큼이나 최종 결과물의 시각적 품질과 텍스처 왜곡 방지에 필수적인 작업입니다.</p>
+            <ul>
+                <li><strong>UV 좌표계:</strong> X, Y, Z 대신 U, V 좌표를 사용하여 2D 맵 상의 위치를 정의합니다.</li>
+                <li><strong>목표:</strong> 텍스처의 늘어짐(Stretching)이나 겹침(Overlapping) 없이 모델 표면 전체에 텍스처를 균일하게 입히는 것입니다.</li>
+            </ul>
+
+            <h2>2. UV 언랩(Unwrap)의 기본 원칙과 심(Seam) 설정</h2>
+            
+            <h3>심(Seam) 설정의 기술</h3>
+            <p>UV 매핑의 핵심은 '심(Seam)'이라 불리는 절단선을 모델에 지정하는 것입니다. 모델을 종이 상자처럼 펼칠 때 칼집을 내는 위치와 같습니다.</p>
+            <ul>
+                <li><strong>설정 기준:</strong> 심은 최대한 눈에 띄지 않는 곳(관절, 옷깃, 모델 뒷면)에 설정하여 시각적인 방해를 최소화해야 합니다.</li>
+                <li><strong>LSCM 알고리즘:</strong> Blender의 언랩(Unwrap) 기능은 설정된 심을 기반으로 최소한의 왜곡으로 3D 표면을 2D 평면에 펼칩니다.</li>
+            </ul>
+            
+            <h3>투사 방법의 이해</h3>
+            <p>복잡한 모델 대신 단순한 원통이나 상자 형태의 모델은 투사(Projection) 기능을 사용하여 빠르게 UV를 생성할 수 있습니다.</p>
+            <ul>
+                <li>Cube Projection: 건물이나 박스형 오브젝트에 적합합니다.</li>
+                <li>Cylinder Projection: 팔, 다리 등 원통형 오브젝트에 유용합니다.</li>
+            </ul>
+
+            <h2>3. 효율적인 UV 공간 활용 및 텍셀 밀도 관리</h2>
+            
+            <h3>텍셀 밀도 (Texel Density)의 통일</h3>
+            <p>모델의 크기와 중요도에 따라 텍스처 해상도가 균일하도록 UV 아일랜드의 크기를 조절하는 것이 중요합니다.</p>
+            <ul>
+                <li><strong>목표:</strong> 큰 오브젝트와 작은 오브젝트 모두 동일한 픽셀 밀도(Texel per unit)를 갖도록 조정합니다.</li>
+                <li>**확인 방법:** 텍셀 밀도 체크용 격자(Grid) 텍스처를 사용하여 시각적으로 왜곡과 밀도를 확인합니다.</li>
+            </ul>
+            
+            <h3>UV 아일랜드 배열 및 최적화</h3>
+            <p>UV 에디터에서 펼쳐진 UV 아일랜드(Island)들을 0~1 공간 내에 효율적으로 배치합니다.</p>
+            <ul>
+                <li>**공간 낭비 최소화:** 아일랜드를 회전시키거나 이동시켜 텍스처 공간을 최대한 많이 활용해야 합니다.</li>
+                <li>**마진 설정:** 텍스처 베이킹 시 오류 방지를 위해 아일랜드 사이에 충분한 마진(간격)을 두어야 합니다.</li>
+            </ul>
+
+            <h2>4. 고급 UV 기능 및 마무리</h2>
+            <p>Blender의 UV 스크립팅, 핀(Pin) 기능, 평균 아일랜드 크기 맞추기 등의 고급 기능을 활용하여 복잡한 모델의 UV 작업을 효율적으로 자동화할 수 있습니다. 완벽한 UV는 퀄리티 높은 텍스처링의 필수 전제 조건입니다.</p>
+        </div>
+        
+
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+</html>

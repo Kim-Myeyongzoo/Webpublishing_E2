@@ -1,0 +1,274 @@
+ <style>
+        .main-header {
+    background-color: #ffffff;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-weight: bold;
+    color: #ae49a3; /* 이미지 상의 보라색 계열 */
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.85em;
+    padding: 5px 0;
+}
+
+        /* 기본 리셋 및 중앙 정렬 */
+        body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center; /* 전체 텍스트 및 인라인 요소 가운데 정렬 */
+        }
+
+        /* 메인 컨테이너: 최대 너비 설정 및 가운데 정렬 */
+        .container {
+            max-width: 1000px;
+            margin: 20px auto; /* 상하 20px, 좌우 자동 (가운데 정렬) */
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left; /* 내부 블록 텍스트는 다시 왼쪽 정렬 */
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        h2, h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #555;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #eee;
+        }
+
+        p, ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        
+        ul {
+            list-style-type: disc;
+            padding-left: 40px;
+        }
+
+        /* 1. 유튜브 영상 영역 */
+        .video-section {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .video-wrapper {
+            /* 반응형 비디오 비율 유지 (16:9) */
+            position: relative;
+            padding-bottom: 56.25%; /* 9 / 16 = 0.5625 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            margin: 0 auto; /* wrapper 자체를 가운데 정렬 */
+            border-radius: 4px;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* 2. 텍스트 영역 */
+        .text-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+
+        /* 표 스타일 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+            text-align: left;
+        }
+        
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        
+        th {
+            background-color: #eee;
+            text-align: center;
+        }
+
+        /* 3. 과정 및 완성본 사진 영역 */
+        .photo-gallery {
+            margin-bottom: 30px;
+        }
+        
+        .photo-gallery h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        /* 이미지 그리드 레이아웃 */
+        .image-grid {
+            display: flex;
+            flex-wrap: wrap; /* 반응형 줄바꿈 허용 */
+            gap: 15px; /* 이미지 간 간격 */
+            justify-content: center; /* 이미지들을 중앙 정렬 */
+        }
+        
+        .image-item {
+            /* 기본적으로 세 개의 아이템이 한 줄에 배치 */
+            flex: 1 1 calc(33.333% - 15px); 
+            max-width: 350px; 
+            text-align: center;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px 4px 0 0;
+        }
+
+        /* ---------------------------------- */
+        /* 반응형 디자인 (모바일 최적화) */
+        /* ---------------------------------- */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 10px;
+            }
+            
+            /* 좁은 화면에서는 이미지를 수직으로 쌓음 */
+            .image-grid {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .image-item {
+                flex: 1 1 100%; /* 너비를 꽉 채움 */
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.png" id="logo">
+                </a></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="./01. HARDSURFACE MODELING.html">HARD SURFACE MODELING</a></li>
+                    <li><a href="./02. CHARACTER MODELING.html">CHARACTER MODELING</a></li>
+                    <li><a href="./03. UV.html">UV</a></li>
+                    <li><a href="./04. LIGHTING.html">LIGHTING</a></li>
+                    <li><a href="./05. VFX.html">VFX</a></li>
+                </ul>
+            </nav>
+    </header>
+
+    <div class="container">
+        <h1>💡 쉬운 Blender 라이팅 핵: 렌더 품질을 극대화하는 방법</h1>
+        
+        <div class="video-section">
+            <h2>강의 영상</h2>
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/Hyhew7kuhgA" 
+                    title="Easy Blender Lighting HACK [Blender Tutorial]" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        
+        <div class="text-section">
+            <h2>강의 내용 요약: 현실적인 조명 마스터하기</h2>
+            
+            <h2>1. 조명의 중요성과 현실 세계의 빛</h2>
+            <p>렌더링 품질을 '좋음'에서 '놀라움'으로 변환하는 핵심은 **조명(Lighting)**의 이해와 숙달에서 시작합니다.</p>
+            <ul>
+                <li><strong>문제점:</strong> 기본 렌더의 그림자는 너무 날카롭고 정밀하여 현실적이지 않습니다.</li>
+                <li><strong>현실의 빛:</strong> 현실 세계의 빛은 단일 출처가 아니며, 미묘한 차이와 뉘앙스로 가득 찬 역동적인 환경을 만듭니다. 개선된 조명에서는 그림자가 빛에 자연스럽게 녹아들어 부드럽게 표현됩니다.</li>
+            </ul>
+
+            <h2>2. 월드 셰이딩(World Shading)을 활용한 조명 설정 핵</h2>
+            <p>객체(Object) 셰이딩에서 **월드(World) 셰이딩** 탭으로 전환하여 조명을 설정합니다.</p>
+            
+            <h3>2.1. 이중 스카이 텍스처 (Sky Texture) 활용</h3>
+            <p>하나가 아닌 **두 개의 Sky Texture 노드**를 추가합니다.</p>
+            <ul>
+                <li><strong>태양 회전(Sun Rotation):</strong> 두 번째 Sky Texture의 태양 회전을 첫 번째 텍스처보다 **몇 도 정도만 다르게** 설정합니다 (예: 30도와 32도). 이는 깊이감을 생성하는 데 도움이 됩니다.</li>
+                <li><strong>태양 강도(Sun Intensity):</strong> 두 텍스처 모두 태양 강도를 **0.5**로 낮춥니다.</li>
+                <li><strong>태양 크기(Sun Size):</strong> **대조**를 위해 두 텍스처의 태양 크기를 다르게 설정합니다 (예: 5와 1). 이는 장면에 필요한 분위기에 맞게 조정 가능합니다.</li>
+            </ul>
+
+            <h3>2.2. 온도 제어 및 통합</h3>
+            <p><strong>Black Body 노드</strong>를 사용하여 장면의 색 온도(Color Temperature)를 제어합니다.</p>
+            <ul>
+                <li>Black Body 노드를 **Mix Color 노드**와 연결하고, 이 Mix Color 노드와 두 Sky Texture 노드를 연결합니다.</li>
+                <li>온도 범위는 0~10,000이며, 숫자가 낮을수록 장면이 더 따뜻해집니다.</li>
+            </ul>
+
+            <h3>2.3. 반사율(Reflection) 개선</h3>
+            <p>장면에 더욱 현실적인 반사 효과를 주기 위해 노드를 추가합니다.</p>
+            <ul>
+                <li>**Light Path 노드**, **Mix Shader 노드**, 그리고 다른 **Background 노드**를 추가합니다.</li>
+                <li>Light Path 노드의 **'as Glossy Ray'** 출력을 Mix Shader의 **'Fac'** 입력에 연결합니다.</li>
+                <li>두 Background 노드를 Mix Shader에 연결하고, 두 번째 Background 노드의 색상을 장면을 보완하는 색조로 선택합니다.</li>
+                <li>이 설정은 월드 환경을 더 반사적으로 만듭니다.</li>
+            </ul>
+
+            <p>이러한 노드 설정을 월드 출력(World Output)의 표면(Surface)에 연결하면 최종적인 조명 설정이 완료됩니다.</p>
+        </div>
+        
+    </div>
+
+</body>
+</html>
